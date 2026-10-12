@@ -1,0 +1,16 @@
+# CODEOWNERS — https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
+#
+# Default owners for everything in the repository.
+
+*                                   @coderooz
+
+# Documentation, governance and automation
+/docs/                              @coderooz
+/.github/                           @coderooz
+/.workspace/                        @coderooz
+/.vscode/                           @coderooz
+
+# Application source
+/src/                               @coderooz
+/app.json                           @coderooz
+/package.json                       @coderooz

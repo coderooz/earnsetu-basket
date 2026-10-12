@@ -9,19 +9,15 @@
     "isolatedModules": true,
     "types": ["nativewind/types"],
     "tsBuildInfoFile": ".tsbuildinfo",
-    "baseUrl": ".",
     "paths": {
-      "@/components/*" : ["src/components/*"],
-      "@/lib/*" : ["src/lib/*"],
-      "@/screens/*" : ["src/screens/*"],
-      "@/context/*" : ["src/context/*"],
-      "@/hooks/*" : ["src/hooks/*"],
-      "@/navigation/*": ["src/navigation/*"]
+      "@/components/*": ["./src/components/*"],
+      "@/lib/*": ["./src/lib/*"],
+      "@/screens/*": ["./src/screens/*"],
+      "@/context/*": ["./src/context/*"],
+      "@/hooks/*": ["./src/hooks/*"],
+      "@/navigation/*": ["./src/navigation/*"],
+      "@/types/*": ["./src/types/*"]
     }
   },
-  "include": [
-    "**/*.ts",
-    "**/*.tsx",
-    "nativewind-env.d.ts"
-  ]
+  "include": ["**/*.ts", "**/*.tsx", "nativewind-env.d.ts"]
 }

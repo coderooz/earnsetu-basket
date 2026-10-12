@@ -1,0 +1,103 @@
+name: Bug report
+description: Report a problem with EarnSetu Basket.
+title: "[Bug]: "
+labels: ["bug", "needs triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to file a bug report.
+
+        > **Security issues:** do not report them here. See [SECURITY.md](../SECURITY.md).
+
+        Before filing, please check the [known limitations](../../docs/KNOWN_LIMITATIONS.md) —
+        many current gaps (no authentication, no backend, no local database, lint failing)
+        are already tracked.
+
+  - type: checkboxes
+    id: preflight
+    attributes:
+      label: Preflight checklist
+      options:
+        - label: I have searched existing issues and this is not a duplicate.
+          required: true
+        - label: I have read the known limitations document.
+          required: true
+        - label: This is not a security vulnerability (those go to SECURITY.md).
+          required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Describe the bug
+      description: A clear and concise description of what is wrong.
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Go to '...'
+        2. Tap on '...'
+        3. See error
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behaviour
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behaviour
+    validations:
+      required: true
+
+  - type: dropdown
+    id: platform
+    attributes:
+      label: Platform
+      multiple: true
+      options:
+        - Android
+        - iOS
+        - Web
+        - Not platform-specific
+    validations:
+      required: true
+
+  - type: input
+    id: version
+    attributes:
+      label: App version / commit
+      description: From `app.json` (`version`) or the git commit SHA.
+      placeholder: "e.g. 1.0.2 or cf84dfe"
+
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: OS, Node version, device/emulator, Expo Go vs native build.
+      placeholder: |
+        - OS: Windows 11
+        - Node: v24
+        - Device: Android emulator (API 36)
+        - Build: expo run:android
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Relevant logs / screenshots
+      description: Paste relevant output. Remove any secrets or personal data first.
+      render: shell
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: Additional context

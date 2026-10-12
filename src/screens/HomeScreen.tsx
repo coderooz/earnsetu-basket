@@ -3,52 +3,80 @@
  * @author (Ranit Saha) <coderooz.dev@gmail.com>
  * @filePath src/screens/HomeScreen.tsx
  * @accessPath @/screens/HomeScreen
- * @description Home Screen page
+ * @description Home dashboard. Data is not wired yet — placeholders only.
  * @created 2025-11-21
- * @lastModified 2025-11-22
- * @version 1.0.0
+ * @lastModified 2026-10-11
+ * @version 1.1.0 - Structured skeleton with navigation to Purchase / Product Item.
  */
 
-import { Text, View, TouchableOpacity, Alert } from "react-native";
+import { Text, View } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import ScreenContainer from "@/components/common/ScreenContainer";
+import SectionCard from "@/components/common/SectionCard";
+import EmptyState from "@/components/common/EmptyState";
 import Button from "@/components/items/Button";
-import storage from "@/lib/storage";
+import useUserContext from "@/hooks/UserHook";
+import type { HomeNav, MainTabNav } from "@/navigation/types";
 
 export default function HomeScreen() {
-  const navigation = useNavigation<any>();
+  const navigation = useNavigation<HomeNav>();
+  const { userData } = useUserContext();
 
-  const handleClearLogs = async () => {
-    try {
-      await storage.clear(); // Clear all async storage
-      Alert.alert("Success", "All stored data has been cleaned.");
-    } catch (error) {
-      Alert.alert("Error", "Unable to clear data. Try again later.");
-      console.log("Clear Error:", error);
-    }
-  };
+  const displayName =
+    userData?.name?.first_name ?? userData?.userName ?? "there";
 
   return (
-    <View className="flex-1 items-center justify-center bg-green-800">
-      <Text className="text-2xl font-bold text-blue-500 mb-6">
-        Home Screen
+    <ScreenContainer scroll>
+      <Text className="text-2xl font-bold text-neutral-900">
+        Hi, {displayName}
+      </Text>
+      <Text className="mt-1 text-sm text-neutral-500">
+        What are we shopping for today?
       </Text>
 
-      <TouchableOpacity
-        onPress={() => navigation.navigate("Settings")}
-        className="bg-blue-600 px-6 py-3 rounded-lg mb-6"
-      >
-        <Text className="text-white font-semibold text-lg">
-          Go to Settings
-        </Text>
-      </TouchableOpacity>
+      <View className="mt-5 flex-row gap-3">
+        <View className="flex-1">
+          <Button
+            fullWidth
+            onPress={() =>
+              navigation.getParent<MainTabNav>()?.navigate("PurchaseTab")
+            }
+          >
+            Record purchase
+          </Button>
+        </View>
+        <View className="flex-1">
+          <Button
+            variant="outline"
+            fullWidth
+            onPress={() => navigation.navigate("ProductItem")}
+          >
+            Browse items
+          </Button>
+        </View>
+      </View>
 
-      <Button
-        variant="default"
-        className="px-3 py-3 rounded-lg bg-white"
-        onPress={handleClearLogs}
-      >
-        <Text className="text-black font-bold">Clean Logs</Text>
-      </Button>
-    </View>
+      <View className="mt-6">
+        <SectionCard
+          title="Active shopping lists"
+          subtitle="TODO(data): read from the local store"
+        >
+          <EmptyState
+            title="No lists yet"
+            message="Your shopping lists will appear here."
+          />
+        </SectionCard>
+
+        <SectionCard
+          title="Recent purchases"
+          subtitle="TODO(data): read from the local store"
+        >
+          <EmptyState
+            title="No purchases yet"
+            message="Purchases you record will appear here."
+          />
+        </SectionCard>
+      </View>
+    </ScreenContainer>
   );
 }

@@ -1,0 +1,81 @@
+{
+  // EarnSetu Basket — VS Code tasks.
+  // Run with: Terminal → Run Task… (or Ctrl+Shift+B for the default "validate" task).
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "npm: install",
+      "type": "npm",
+      "script": "install",
+      "problemMatcher": []
+    },
+    {
+      "label": "expo: start (dev server)",
+      "type": "npm",
+      "script": "start",
+      "isBackground": true,
+      "problemMatcher": [],
+      "presentation": { "reveal": "always", "panel": "dedicated" }
+    },
+    {
+      "label": "expo: run android",
+      "type": "npm",
+      "script": "android",
+      "problemMatcher": []
+    },
+    {
+      "label": "expo: run ios",
+      "type": "npm",
+      "script": "ios",
+      "problemMatcher": []
+    },
+    {
+      "label": "expo: run web",
+      "type": "npm",
+      "script": "web",
+      "problemMatcher": []
+    },
+    {
+      "label": "typecheck (tsc --noEmit)",
+      "type": "shell",
+      "command": "npx tsc --noEmit",
+      "problemMatcher": ["$tsc"],
+      "presentation": { "reveal": "always", "panel": "shared" }
+    },
+    {
+      "label": "expo-doctor",
+      "type": "shell",
+      "command": "npx expo-doctor",
+      "problemMatcher": [],
+      "presentation": { "reveal": "always", "panel": "shared" }
+    },
+    {
+      "label": "lint (eslint)",
+      "type": "npm",
+      "script": "lint",
+      "problemMatcher": ["$eslint-stylish"],
+      "presentation": { "reveal": "always", "panel": "shared" }
+    },
+    {
+      "label": "format (prettier --write)",
+      "type": "shell",
+      "command": "npx prettier --write .",
+      "problemMatcher": [],
+      "presentation": { "reveal": "always", "panel": "shared" }
+    },
+    {
+      "label": "format: check (prettier --check)",
+      "type": "shell",
+      "command": "npx prettier --check .",
+      "problemMatcher": [],
+      "presentation": { "reveal": "always", "panel": "shared" }
+    },
+    {
+      "label": "validate",
+      "dependsOrder": "sequence",
+      "dependsOn": ["typecheck (tsc --noEmit)", "expo-doctor", "lint (eslint)"],
+      "problemMatcher": [],
+      "group": { "kind": "build", "isDefault": true }
+    }
+  ]
+}

@@ -1,51 +1,49 @@
 /**@format
  * @coderooz
  * @author (Ranit Saha) <coderooz.dev@gmail.com>
- * @filePath src/navigation/AppNaviation.tsx 
- * @accessPath @/navigation/AppNaviation
- * @description Handles Onboarding page naviation
+ * @filePath src/navigation/OnBoardingNavigation.tsx
+ * @accessPath @/navigation/OnBoardingNavigation
+ * @description Root gate: first launch → Onboarding; otherwise → Auth flow.
  * @created 2025-11-22
- * @lastModified 2025-11-23
- * @version 1.0.0 - Initial Version
+ * @lastModified 2026-10-11
+ * @version 1.1.0 - Onboarding now uses the dedicated OnboardingScreen.
  */
 
 import { useEffect } from "react";
-import { createStackNavigator } from '@react-navigation/stack';
-// import AppNavigationContainer from "@/navigation/AppNavigation";
+import { createStackNavigator } from "@react-navigation/stack";
 import AuthNaviationContainer from "@/navigation/AuthNavigation";
-import SplashScreen from "@/screens/SplashScreen";
+import OnboardingScreen from "@/screens/OnboardingScreen";
 import useUserContext from "@/hooks/UserHook";
 import storage from "@/lib/storage";
+import type { RootStackParamList } from "@/navigation/types";
 
-const Stack = createStackNavigator();
+const Stack = createStackNavigator<RootStackParamList>();
 
 /**
- * AppNavigationContainer
- * ----------------------
- * The container that stores all the navigation stack of the major pages of the application.
- * 
+ * OnBoardingContainer
+ * -------------------
+ * The container that decides whether to show onboarding or the main application.
+ *
  * @returns React.ReactNode
  */
-
 export default function OnBoardingContainer() {
+  const { isFirstLaunch, updateLaunch } = useUserContext();
 
-    const { isFirstLaunch, updateLaunch } = useUserContext();
-
-    useEffect(() => {
-      const checkStatus = async () => {
-        const firstTime = await storage.get<boolean>("hasLaunched");
-        updateLaunch(firstTime === null);
-      };
-      checkStatus();
-    }, [updateLaunch]);
+  useEffect(() => {
+    const checkStatus = async () => {
+      const firstTime = await storage.get<boolean>("hasLaunched");
+      updateLaunch(firstTime === null);
+    };
+    checkStatus();
+  }, [updateLaunch]);
 
   return (
     <Stack.Navigator screenOptions={{ headerShown: false }}>
       {isFirstLaunch ? (
-          <Stack.Screen name="Onboarding" component={SplashScreen} />
-        ) : (
-          <Stack.Screen name="AuthContainer" component={AuthNaviationContainer} />
-        )}
+        <Stack.Screen name="Onboarding" component={OnboardingScreen} />
+      ) : (
+        <Stack.Screen name="AuthContainer" component={AuthNaviationContainer} />
+      )}
     </Stack.Navigator>
   );
 }

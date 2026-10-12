@@ -21,7 +21,7 @@ export default function HeaderComponent({ navigation, route, options, back }: St
           {title}
         </Text>
       </View>
-      <TouchableOpacity className="mr-3" onPress={()=>navigation.navigate("Settings")}>
+      <TouchableOpacity className="mr-3" onPress={()=>navigation.navigate("SettingsTab")}>
         <Ionicons name="settings" size={22} color="black"/>
       </TouchableOpacity>
     </View>

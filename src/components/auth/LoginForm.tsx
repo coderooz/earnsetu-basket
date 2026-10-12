@@ -11,11 +11,14 @@
 
 import { View, Text, TextInput, TouchableOpacity } from "react-native";
 import { FontAwesome, MaterialIcons } from "@expo/vector-icons";
+import { useNavigation } from "@react-navigation/native";
 import useUserContext from "@/hooks/UserHook";
+import type { AuthNav } from "@/navigation/types";
 import { useState } from "react";
 
 
 export default function LoginForm() {
+  const navigation = useNavigation<AuthNav>();
   const { setUserData } = useUserContext();
   const [ inputMain, setInputMain ] = useState<string | undefined>();
   const [inputPassword, serInputPassword] = useState<string | undefined>();
@@ -52,7 +55,7 @@ export default function LoginForm() {
 
       {/* Forgot + MPIN / FP */}
       <View className="flex-row justify-between mb-6">
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigate("ForgotPassword")}>
           <Text className="text-purple-600 font-semibold">Forgot Password?</Text>
         </TouchableOpacity>
         <TouchableOpacity>

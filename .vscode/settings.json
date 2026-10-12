@@ -1,0 +1,100 @@
+{
+  // ---------------------------------------------------------------------------
+  // EarnSetu Basket — shared VS Code workspace settings
+  // Personal overrides belong in .vscode/settings.local.json (gitignored).
+  // ---------------------------------------------------------------------------
+
+  // Use the TypeScript version installed in the project (not VS Code's bundled one).
+  "js/ts.tsdk.path": "node_modules/typescript/lib",
+  "js/ts.tsdk.enablePromptUseWorkspaceTsdk": true,
+  "js/ts.tsdk.preferences.importModuleSpecifier": "non-relative",
+
+  // Formatting
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.rulers": [100],
+
+  // ESLint (flat config)
+  "eslint.useFlatConfig": true,
+  "eslint.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact"],
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  },
+
+  // Files
+  "files.eol": "\n",
+  "files.insertFinalNewline": true,
+  "files.trimTrailingWhitespace": true,
+  "files.trimFinalNewlines": true,
+  "files.associations": {
+    "*.css": "tailwindcss"
+  },
+  "files.exclude": {
+    "**/.expo": true,
+    "**/dist": true,
+    "**/web-build": true,
+    "**/.opencode": true,
+    "**/.idea": true,
+    "**/.claude": true,
+    "**/node_modules": true,
+    "**/package-lock.json": true,
+    "**/coverage": true
+  },
+
+  // Search noise reduction
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/package-lock.json": true,
+    "**/.expo": true,
+    "**/dist": true,
+    "**/web-build": true,
+    "**/coverage": true,
+    "**/.opencode": true,
+    "**/.idea": true,
+    "**/.claude": true,
+    "**/.workspace/reports": true
+  },
+
+  // Tailwind CSS IntelliSense — understand class names in React Native (NativeWind)
+  "tailwindCSS.includeLanguages": {
+    "typescript": "javascript",
+    "typescriptreact": "javascript"
+  },
+  "tailwindCSS.classFunctions": ["cn", "clsx", "cva", "twMerge"],
+  "tailwindCSS.experimental.classRegex": [
+    ["className\\s*=\\s*[\"'`]([^\"'`]*)[\"'`]", "([^\\s\"'`]*)"],
+    ["(?:cn|clsx|cva|twMerge)\\(([^)]*)\\)", "[\"'`]([^\"'`]*)[\"'`]"]
+  ],
+
+  // Spell checking dictionary (Code Spell Checker extension)
+  "cSpell.words": [
+    "Coderooz",
+    "EarnSetu",
+    "NativeWind",
+    "Ranit",
+    "Saha",
+    "Pressable",
+    "worklets",
+    "sqlite",
+    "tsbuildinfo",
+    "coderooz",
+    "onboarding",
+    "supabase",
+    "monorepo",
+    "idempotency",
+    "idempotent"
+  ],
+
+  // Language-specific formatters
+  "[typescript]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+  "[typescriptreact]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+  "[javascript]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+  "[javascriptreact]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+  "[json]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+  "[jsonc]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+  "[css]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+  "[markdown]": {
+    "editor.formatOnSave": false,
+    "editor.wordWrap": "on"
+  }
+}

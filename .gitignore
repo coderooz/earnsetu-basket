@@ -5,9 +5,11 @@ node_modules/
 
 # Expo
 .expo/
+.expo-shared/
 dist/
 web-build/
 expo-env.d.ts
+nativewind-env.d.ts
 
 # Native
 *.orig.*
@@ -16,6 +18,10 @@ expo-env.d.ts
 *.p12
 *.key
 *.mobileprovision
+
+# CNG native projects — generated on demand from app.json + config plugins, never committed
+/android/
+/ios/
 
 # Metro
 .metro-health-check*
@@ -29,10 +35,36 @@ yarn-error.*
 .DS_Store
 *.pem
 
-# local env files
-.env*.local
+# Windows
+Thumbs.db
+Desktop.ini
+
+# local env files — NEVER commit real secrets
+.env
+.env.*
+!.env.example
 
 # typescript
 *.tsbuildinfo
 
-app-example
+# testing / coverage
+coverage/
+
+# editor — shared .vscode/ is committed; ignore personal overrides
+.vscode/*.local.json
+.vscode/settings.local.json
+
+# Expo prebuild artifacts (CNG generates these on demand)
+/app-example
+
+# ---------------------------------------------------------------------------
+# Governance workspace
+#   PRI (structure) and LFI (behaviour) are committed project reference systems.
+#   Everything else under .workspace/ (reports, scratch) is local-only.
+# ---------------------------------------------------------------------------
+.workspace/*
+!.workspace/PRI/
+!.workspace/LFI/
+
+## Extensions
+**/*.zip

@@ -1,0 +1,33 @@
+{
+  // EarnSetu Basket — VS Code debug configurations.
+  // Requires the "React Native Tools" extension (msjsdiag.vscode-react-native).
+  // For day-to-day work, prefer the Expo dev server (`npm start`) + Expo dev tools.
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Expo: Debug Android",
+      "type": "react-native",
+      "request": "launch",
+      "platform": "android"
+    },
+    {
+      "name": "Expo: Debug iOS",
+      "type": "react-native",
+      "request": "launch",
+      "platform": "ios"
+    },
+    {
+      "name": "Expo: Attach to Metro",
+      "type": "react-native",
+      "request": "attach"
+    },
+    {
+      "name": "Node: Current TS file",
+      "type": "node",
+      "request": "launch",
+      "runtimeArgs": ["-r", "ts-node/register"],
+      "args": ["${file}"],
+      "skipFiles": ["<node_internals>/**"]
+    }
+  ]
+}

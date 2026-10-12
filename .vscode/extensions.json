@@ -1,0 +1,26 @@
+{
+  "recommendations": [
+    // Core: linting, formatting, type safety
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode",
+    "editorconfig.editorconfig",
+
+    // Expo / React Native
+    "expo.vscode-expo-tools",
+    "msjsdiag.vscode-react-native",
+
+    // Styling (NativeWind / Tailwind)
+    "bradlc.vscode-tailwindcss",
+
+    // Docs & repo hygiene
+    "streetsidesoftware.code-spell-checker",
+    "yzhang.markdown-all-in-one",
+    "davidanson.vscode-markdownlint",
+    "mikestead.dotenv",
+    "eamodio.gitlens",
+    "usernamehw.errorlens",
+    "redhat.vscode-yaml",
+    "github.vscode-github-actions"
+  ],
+  "unwantedRecommendations": []
+}

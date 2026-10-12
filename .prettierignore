@@ -1,0 +1,22 @@
+# Prettier ignore — https://prettier.io/docs/en/ignore
+node_modules/
+.expo/
+dist/
+web-build/
+coverage/
+
+# Generated
+nativewind-env.d.ts
+package-lock.json
+
+# Native (generated via CNG — never format by hand)
+ios/
+android/
+
+# Documentation is authored by hand and validated separately
+*.md
+.workspace/
+
+# Assets
+assets/
+*.svg

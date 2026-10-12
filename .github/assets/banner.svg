@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="320" viewBox="0 0 1280 320" role="img" aria-label="EarnSetu Basket">
+  <title>EarnSetu Basket</title>
+  <desc>EarnSetu Basket — mobile-first shopping list and purchase recording (prototype).</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="55%" stop-color="#16233b"/>
+      <stop offset="100%" stop-color="#0b1220"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#34d399"/>
+      <stop offset="100%" stop-color="#22d3ee"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.15" cy="0.2" r="0.7">
+      <stop offset="0%" stop-color="#22d3ee" stop-opacity="0.28"/>
+      <stop offset="100%" stop-color="#22d3ee" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1280" height="320" fill="url(#bg)"/>
+  <rect width="1280" height="320" fill="url(#glow)"/>
+
+  <!-- decorative bubbles -->
+  <circle cx="1150" cy="60" r="120" fill="#34d399" opacity="0.06"/>
+  <circle cx="1210" cy="250" r="90" fill="#22d3ee" opacity="0.07"/>
+  <circle cx="120" cy="290" r="80" fill="#34d399" opacity="0.05"/>
+
+  <!-- basket glyph -->
+  <g transform="translate(80 96)" fill="none" stroke="url(#accent)" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M8 34 H104 L92 104 H20 Z"/>
+    <path d="M30 34 C30 8 82 8 82 34"/>
+    <path d="M30 56 H82"/>
+    <path d="M40 74 H72"/>
+  </g>
+
+  <!-- wordmark -->
+  <text x="230" y="148" font-family="'Segoe UI', system-ui, -apple-system, Arial, sans-serif" font-size="78" font-weight="700" fill="#e7eefc">
+    EarnSetu <tspan fill="url(#accent)">Basket</tspan>
+  </text>
+
+  <!-- tagline -->
+  <text x="234" y="200" font-family="'Segoe UI', system-ui, -apple-system, Arial, sans-serif" font-size="27" fill="#9fb2cf">
+    Shopping lists &amp; purchase recording — offline-first
+  </text>
+
+  <!-- status pill -->
+  <g transform="translate(234 224)">
+    <rect x="0" y="0" width="250" height="42" rx="21" fill="#22d3ee" opacity="0.12" stroke="#22d3ee" stroke-opacity="0.4"/>
+    <circle cx="24" cy="21" r="6" fill="#f59e0b"/>
+    <text x="44" y="29" font-family="'Segoe UI', system-ui, -apple-system, Arial, sans-serif" font-size="20" fill="#cfe0f7">
+      Prototype · pre-alpha
+    </text>
+  </g>
+
+  <!-- ecosystem note -->
+  <text x="1240" y="296" text-anchor="end" font-family="'Segoe UI', system-ui, -apple-system, Arial, sans-serif" font-size="19" fill="#5f748f">
+    Part of the EarnSetu ecosystem
+  </text>
+</svg>

@@ -1,0 +1,10 @@
+# EAS Build upload ignore file.
+# Local Gradle/Android build outputs must never be uploaded: they contain
+# machine-specific state and locked files that break the tarball step.
+# (CNG regenerates android/ and ios/ from app.json + config plugins.)
+android/.gradle/
+android/build/
+android/app/build/
+android/app/.cxx/
+ios/build/
+ios/Pods/

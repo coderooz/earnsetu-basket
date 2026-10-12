@@ -1,0 +1,21 @@
+# IntelliJ / Android Studio — ignore per-user and machine-specific files.
+#
+# Project-level settings (codeStyles/, inspectionProfiles/, *.iml, modules.xml,
+# vcs.xml, markdown.xml) are intentionally TRACKED so they can be shared,
+# mirroring `.vscode/`. Add more machine-specific files below if they cause churn.
+
+# Default ignored files
+/shelf/
+/workspace.xml
+
+# Machine-specific / generated
+/misc.xml
+/usage.statistics.xml
+/.name
+
+# Editor-based HTTP Client requests
+/httpRequests/
+
+# Data source local storage
+/dataSources/
+/dataSources.local.xml
