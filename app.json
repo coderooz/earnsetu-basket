@@ -5,11 +5,13 @@
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
-    "userInterfaceStyle": "light",
+    "userInterfaceStyle": "automatic",
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.coderooz.earnsetubasket"
     },
     "android": {
+      "package": "com.coderooz.earnsetubasket",
       "adaptiveIcon": {
         "backgroundColor": "#E6F4FE",
         "foregroundImage": "./assets/android-icon-foreground.png",
@@ -20,6 +22,27 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "plugins": [
+      "expo-font",
+      "expo-sharing",
+      "expo-sqlite",
+      "expo-splash-screen"
+    ],
+    "extra": {
+      "earnsetu": {
+        "ecosystem": "EarnSetu",
+        "role": "child",
+        "slug": "earnsetu-basket",
+        "parentSlug": "earnsetu",
+        "parentAndroidPackage": "com.coderooz.earnsetu",
+        "parentIosBundleIdentifier": "com.coderooz.earnsetu",
+        "namingStatus": "provisional"
+      },
+      "eas": {
+        "projectId": "b66d6d4c-93b2-4a6d-80ce-993c4a037801"
+      }
+    },
+    "owner": "coderooz"
   }
 }

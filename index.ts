@@ -1,4 +1,6 @@
 import { registerRootComponent } from 'expo';
+// Otherwise import your CSS file in the index.js file:
+import './global.css';
 
 import App from './App';
 
