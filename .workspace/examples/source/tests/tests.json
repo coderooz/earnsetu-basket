@@ -1,0 +1,46 @@
+[
+  {
+    "name": "Plan an item with a preferred shop and expected price",
+    "sanity": true,
+    "viewport": "mobile",
+    "covers": ["custom item planning", "preferred shop assignment", "expected price", "currency selection", "estimated pending spend"],
+    "description": "Verifies optional planning details are saved and contribute to the dashboard estimate without recording a purchase.",
+    "setup": ["Create a shop named Raju Store", "Create a list named Monthly groceries"],
+    "steps": ["Open Monthly groceries and add an item named Rice through Custom Input", "Set Raju Store as the preferred shop", "Set the expected unit price to 60 INR", "Save the item", "Open Home"],
+    "expected": "Rice shows its preferred planning details in the list and Home shows 60 INR under Estimated pending without creating a purchase."
+  },
+  {
+    "name": "Record an actual purchase separately from a plan",
+    "viewport": "desktop",
+    "covers": ["plan versus purchase separation", "actual price", "purchase currency", "purchase total"],
+    "description": "Verifies a purchase is created only through the explicit purchase workflow and keeps its actual price separate from the expected price.",
+    "setup": ["Create a list item named Rice with an expected unit price of 60 INR"],
+    "steps": ["Use Record on the unchecked Rice item", "Set unit price to 58", "Save the purchase", "Open Purchase history"],
+    "expected": "Purchase history contains Rice at 58 INR while the planned item retains its expected price."
+  },
+  {
+    "name": "Completed items cannot create duplicate purchases",
+    "viewport": "mobile",
+    "covers": ["completed-item state", "record-purchase guardrail", "expected-price visibility"],
+    "description": "Verifies completed list entries remain visible but cannot open the separate purchase workflow.",
+    "setup": ["Create a list named Household", "Add an item named Soap with an expected price of 50", "Mark Soap complete"],
+    "steps": ["Open Household", "Review the completed Soap row"],
+    "expected": "Soap displays its estimated price and no Record action is visible."
+  },
+  {
+    "name": "Build and retain a shop catalogue without creating a purchase",
+    "viewport": "desktop",
+    "covers": ["shop profile", "shop catalogue add action", "shared item association", "shop catalogue persistence"],
+    "description": "Verifies shop items are associated separately from a purchase record.",
+    "steps": ["Create Raju Store", "Open its profile", "Choose Add items", "Enter Tea in Items sold and save", "Return to the profile"],
+    "expected": "Tea appears under Other items sold and no purchase record is created."
+  },
+  {
+    "name": "Reject empty required forms without creating records",
+    "viewport": "desktop",
+    "covers": ["required field validation", "invalid-write guardrail"],
+    "description": "Verifies empty list, item, shop, and purchase forms are blocked safely.",
+    "steps": ["Open a new list and submit without a name", "Open a new shop and submit without a name", "Open a purchase and submit without item and price"],
+    "expected": "Each form displays a validation message and no record is created."
+  }
+]

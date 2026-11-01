@@ -3,6 +3,7 @@
   "compilerOptions": {
     "strict": true,
     "noEmit": true,
+    "skipLibCheck": true,
     "paths": {
       "@/*": ["./src/*"],
       "@/components/*": ["./src/components/*"],
@@ -13,9 +14,10 @@
       "@/screens/*": ["./src/screens/*"],
       "@/navigation/*": ["./src/navigation/*"],
       "@/lib/*": ["./src/lib/*"],
-      "@/db/*": ["src/db/*"]
+      "@/db/*": ["./src/db/*"],
+      "@/utils/*": ["./src/utils/*"]
     }
   },
   "include": ["**/*.ts", "**/*.tsx", "nativewind-env.d.ts"],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules", ".workspace", "android", "ios", "dist"]
 }

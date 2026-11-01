@@ -1,10 +1,10 @@
 {
-  "port": 47003,
-  "pid": 27056,
-  "startedAt": 1793463767282,
+  "port": 47005,
+  "pid": 10976,
+  "startedAt": 1793533503263,
   "hostname": "Coderooz_PC",
   "status": "running",
   "project": "earnsetu-basket-v2",
-  "signature": "78d94bd4-44d7-4b86-b9a7-3242a5a6b401",
-  "lastUpdated": "2026-10-31T16:22:47.289Z"
+  "signature": "e3011bbc-b99c-41ba-9821-8aeba9fbeeac",
+  "lastUpdated": "2026-11-01T11:45:03.266Z"
 }

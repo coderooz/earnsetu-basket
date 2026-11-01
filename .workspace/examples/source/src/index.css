@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: 'DM Sans', ui-sans-serif, system-ui, sans-serif;
+  color-scheme: light;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+.dark {
+  color-scheme: dark;
+}
+* {
+  box-sizing: border-box;
+}
+html {
+  min-width: 320px;
+  background: #fafaf9;
+}
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+}
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+button {
+  -webkit-tap-highlight-color: transparent;
+}
+.field {
+  display: block;
+  width: 100%;
+  min-height: 44px;
+  border: 1px solid #e7e5e4;
+  border-radius: 12px;
+  background: #fff;
+  padding: 10px 12px;
+  color: #1c1917;
+  outline: none;
+  font-size: 14px;
+}
+.field:focus {
+  border-color: #15803d;
+  box-shadow: 0 0 0 3px rgb(21 128 61 / 12%);
+}
+.dark .field {
+  border-color: #404040;
+  background: #171717;
+  color: #fafafa;
+}
+.dark .field:focus {
+  border-color: #22c55e;
+}
+.label {
+  display: block;
+  margin-bottom: 7px;
+  color: #57534e;
+  font-size: 12px;
+  font-weight: 700;
+}
+.dark .label {
+  color: #d4d4d4;
+}
+::selection {
+  background: #bbf7d0;
+  color: #14532d;
+}
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

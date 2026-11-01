@@ -1,0 +1,20 @@
+﻿node.exe : npm notice run earnsetu-basket-v2@1.0.0 npx
+At line:1 char:1
++ & "C:\Program Files\nodejs/node.exe" "C:\Users\ranit\AppData\Roaming\ ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (npm notice run ...et-v2@1.0.0 npx:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+npm notice run expo lint
+npm notice run earnsetu-basket-v2@1.0.0 npx
+npm notice run eslint C:\Code_Works\HTML_CSS_JS\workProjects\application\earnsetu-basket-v2\src --fix=false 
+--cache=true --cache-location=C:\Code_Works\HTML_CSS_JS\workProjects\application\earnsetu-basket-v2\.expo\cache\eslint\
+
+C:\Code_Works\HTML_CSS_JS\workProjects\application\earnsetu-basket-v2\src\navigation\AppNavigation.tsx
+  42:30  error  Parse errors in imported module '@/context/ThemeProvider': Declaration or statement expected. (134:0)  import/namespace
+
+C:\Code_Works\HTML_CSS_JS\workProjects\application\earnsetu-basket-v2\src\screens\SettingsScreen.tsx
+  43:30  error  Parse errors in imported module '@/context/ThemeProvider': Declaration or statement expected. (134:0)  import/namespace
+
+Γ£û 2 problems (2 errors, 0 warnings)
+

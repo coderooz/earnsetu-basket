@@ -1,14 +1,20 @@
 /** @format */
 
+/**
+ * Schema v1.
+ *
+ * Records are stored as JSON documents (`data_json`) with a small number of
+ * projected columns for filtering and indexing. This keeps the local shape
+ * identical to the documented backend payload while still allowing cheap
+ * list/purchase queries.
+ */
 export const DATABASE_SCHEMA = `
-  PRAGMA foreign_keys = ON;
-
   CREATE TABLE IF NOT EXISTS lists (
     id TEXT PRIMARY KEY NOT NULL,
     data_json TEXT NOT NULL,
     created_at TEXT,
     updated_at TEXT,
-    sync_status TEXT DEFAULT 'local'
+    sync_status TEXT NOT NULL DEFAULT 'local'
   );
 
   CREATE TABLE IF NOT EXISTS items (
@@ -17,7 +23,7 @@ export const DATABASE_SCHEMA = `
     data_json TEXT NOT NULL,
     created_at TEXT,
     updated_at TEXT,
-    sync_status TEXT DEFAULT 'local'
+    sync_status TEXT NOT NULL DEFAULT 'local'
   );
 
   CREATE INDEX IF NOT EXISTS idx_items_list
@@ -28,7 +34,7 @@ export const DATABASE_SCHEMA = `
     data_json TEXT NOT NULL,
     created_at TEXT,
     updated_at TEXT,
-    sync_status TEXT DEFAULT 'local'
+    sync_status TEXT NOT NULL DEFAULT 'local'
   );
 
   CREATE TABLE IF NOT EXISTS purchases (
@@ -37,7 +43,7 @@ export const DATABASE_SCHEMA = `
     data_json TEXT NOT NULL,
     created_at TEXT,
     updated_at TEXT,
-    sync_status TEXT DEFAULT 'local'
+    sync_status TEXT NOT NULL DEFAULT 'local'
   );
 
   CREATE INDEX IF NOT EXISTS idx_purchases_date
@@ -49,11 +55,16 @@ export const DATABASE_SCHEMA = `
     action TEXT NOT NULL,
     entity_id TEXT NOT NULL,
     payload_json TEXT NOT NULL,
-    created_at TEXT NOT NULL
+    created_at TEXT NOT NULL,
+    attempts INTEGER NOT NULL DEFAULT 0,
+    last_error TEXT
   );
 
   CREATE INDEX IF NOT EXISTS idx_outbox_created
   ON sync_outbox(created_at);
+
+  CREATE INDEX IF NOT EXISTS idx_outbox_entity
+  ON sync_outbox(resource, entity_id);
 
   CREATE TABLE IF NOT EXISTS app_meta (
     key TEXT PRIMARY KEY NOT NULL,

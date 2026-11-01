@@ -1,1 +1,10 @@
 @import 'tailwindcss';
+@import 'nativewind/theme';
+
+/*
+ * Explicit source scanning keeps the Tailwind output deterministic.
+ * `.workspace/` (browser reference implementation) is intentionally excluded.
+ */
+@source "./App.tsx";
+@source "./src";
+

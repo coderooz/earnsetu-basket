@@ -41,6 +41,13 @@ yarn-error.*
 /android
 
 # development
-.workspace/
+# `.workspace/` holds local artefacts. The committed reference systems (PRI, LFI)
+# are re-included explicitly; everything else in the workspace stays local.
+.workspace/*
+!.workspace/examples
 !.workspace/PRI
 !.workspace/LFI
+.workspace/reports/
+
+# local runtime / tooling noise
+.mcp-runtime.json

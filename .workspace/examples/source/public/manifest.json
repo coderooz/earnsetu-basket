@@ -1,0 +1,11 @@
+{
+  "name": "EarnSetu Basket",
+  "short_name": "Basket",
+  "description": "Plan what you need. Record what you actually buy.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#fafaf9",
+  "theme_color": "#15803d",
+  "icons": []
+}
